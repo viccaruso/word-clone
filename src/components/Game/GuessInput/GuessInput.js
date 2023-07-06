@@ -14,11 +14,15 @@ function GuessInput() {
     >
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
+        maxLength={5}
+        pattern="[A-Za-z]{5}"
+        title="Must be 5 letters"
         id="guess-input"
         type="text"
         value={guessCandidate}
         onChange={(event) => {
-          setGuessCandidate(event.target.value);
+          setGuessCandidate(event.target.value.toUpperCase());
         }}
       />
     </form>
