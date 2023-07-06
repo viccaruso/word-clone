@@ -5,8 +5,8 @@ import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 function GuessTracker({ guesses }) {
   return (
     <div className="guess-results">
-      {range(NUM_OF_GUESSES_ALLOWED).map((row, index) => (
-        <GuessRow key={index} />
+      {range(NUM_OF_GUESSES_ALLOWED).map((_, index) => (
+        <GuessRow key={index} word={guesses[index]} />
       ))}
     </div>
   );

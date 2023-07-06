@@ -1,14 +1,15 @@
 import React from 'react';
-
-function GuessRow() {
+import { WORD_LENGTH } from '../../constants';
+import { range } from '../../utils';
+function GuessRow({ word = '' }) {
   return (
     <>
       <p className="guess">
-        <span className="cell"></span>
-        <span className="cell"></span>
-        <span className="cell"></span>
-        <span className="cell"></span>
-        <span className="cell"></span>
+        {range(WORD_LENGTH).map((_, index) => (
+          <span key={index} className="cell">
+            {word[index]}
+          </span>
+        ))}
       </p>
     </>
   );
