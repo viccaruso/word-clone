@@ -10,13 +10,6 @@ function GuessRow() {
         <span className="cell"></span>
         <span className="cell"></span>
       </p>
-      <p className="guess">
-        <span className="cell"></span>
-        <span className="cell"></span>
-        <span className="cell"></span>
-        <span className="cell"></span>
-        <span className="cell"></span>
-      </p>
     </>
   );
 }
