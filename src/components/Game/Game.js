@@ -17,13 +17,12 @@ function Game() {
   function handleGuess(guess) {
     if (guesses.length >= NUM_OF_GUESSES_ALLOWED) return;
     const nextGuesses = [...guesses, guess];
-    console.log(nextGuesses);
     setGuesses(nextGuesses);
   }
   return (
     <>
       <GuessTracker guesses={guesses} />
-      <GuessInput handleSubmit={handleGuess} />
+      <GuessInput handleGuess={handleGuess} />
     </>
   );
 }
