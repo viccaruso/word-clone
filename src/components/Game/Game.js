@@ -11,9 +11,10 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
+  const [guesses, setGuesses] = React.useState(['FIRST', 'GUESS']);
   return (
     <>
-      <GuessTracker />
+      <GuessTracker guesses={guesses} />
       <GuessInput />
     </>
   );
