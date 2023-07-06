@@ -12,10 +12,15 @@ console.info({ answer });
 
 function Game() {
   const [guesses, setGuesses] = React.useState(['FIRST', 'GUESS']);
+
+  function handleGuess(guess) {
+    const nextGuesses = [...guesses, guess];
+    setGuesses(nextGuesses);
+  }
   return (
     <>
       <GuessTracker guesses={guesses} />
-      <GuessInput />
+      <GuessInput handleSubmit={handleGuess} />
     </>
   );
 }
