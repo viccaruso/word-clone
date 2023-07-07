@@ -20,6 +20,7 @@ function Game() {
     console.log(result);
     setGuesses([...guesses, result]);
   }
+
   return (
     <>
       <GuessTracker guesses={guesses} />
