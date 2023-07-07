@@ -5,7 +5,8 @@ import { sample } from '../../utils';
 import { WORDS } from '../../data';
 import GuessTracker from '../GuessTracker/GuessTracker';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
-import GameResultBanner from '../GameResultBanner/GameResultBanner';
+import WinBanner from '../WinBanner/WinBanner';
+import LoseBanner from '../LoseBanner/LoseBanner';
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -36,13 +37,8 @@ function Game() {
     <>
       <GuessTracker guesses={guesses} />
       <GuessInput handleGuess={handleGuess} gameOver={gameOver} />
-      {gameOver && (
-        <GameResultBanner
-          answer={answer}
-          status={gameStatus}
-          numOfGuesses={guesses.length}
-        />
-      )}
+      {gameStatus === 'win' && <WinBanner numOfGuesses={guesses.length} />}
+      {gameStatus === 'lose' && <LoseBanner answer={answer} />}
     </>
   );
 }
