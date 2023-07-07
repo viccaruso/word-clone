@@ -13,7 +13,6 @@ const answer = sample(WORDS);
 
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
-  const [gameOver, setGameOver] = React.useState(false);
   const [gameStatus, setGameStatus] = React.useState('in progress');
 
   function handleGuess(guess) {
@@ -23,20 +22,18 @@ function Game() {
 
     if (guess === answer) {
       setGameStatus('win');
-      setGameOver(true);
     } else if (
       nextGuesses.length === NUM_OF_GUESSES_ALLOWED &&
       guess !== answer
     ) {
       setGameStatus('lose');
-      setGameOver(true);
     }
   }
 
   return (
     <>
       <GuessTracker guesses={guesses} />
-      <GuessInput handleGuess={handleGuess} gameOver={gameOver} />
+      <GuessInput handleGuess={handleGuess} gameStatus={gameStatus} />
       {gameStatus === 'win' && <WinBanner numOfGuesses={guesses.length} />}
       {gameStatus === 'lose' && <LoseBanner answer={answer} />}
     </>
