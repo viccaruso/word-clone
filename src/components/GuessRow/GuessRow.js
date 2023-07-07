@@ -1,6 +1,7 @@
 import React from 'react';
 import { WORD_LENGTH } from '../../constants';
 import { range } from '../../utils';
+
 function GuessRow({ guessResult = [] }) {
   return (
     <>
