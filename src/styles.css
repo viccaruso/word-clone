@@ -185,6 +185,14 @@ h1 {
   color: white;
 }
 
+.reset.button {
+  background-color: cadetblue;
+  width: fit-content;
+  padding: 0 0.5rem 0 0.5rem;
+  border-radius: 4px;
+  margin: auto;
+}
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;

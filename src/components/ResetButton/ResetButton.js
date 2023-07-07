@@ -10,7 +10,11 @@ function ResetButton({ setAnswer, setGuesses, setGameStatus }) {
     setGuesses([]);
     setGameStatus('in progress');
   }
-  return <Button clickHandler={handleReset}>New Game</Button>;
+  return (
+    <Button className="reset button" clickHandler={handleReset}>
+      New Game
+    </Button>
+  );
 }
 
 export default ResetButton;
