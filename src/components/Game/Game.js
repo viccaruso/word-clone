@@ -15,10 +15,20 @@ console.info({ answer });
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
   const [gameOver, setGameOver] = React.useState(false);
-  const [gameStatus, setGameStatus] = React.useState('in-progress');
+  const [gameStatus, setGameStatus] = React.useState('in progress');
 
   function handleGuess(guess) {
-    if (guesses.length >= NUM_OF_GUESSES_ALLOWED) return;
+    if (guess === answer) {
+      setGameStatus('win');
+      setGameOver(true);
+    } else if (
+      guesses.length === NUM_OF_GUESSES_ALLOWED - 1 &&
+      guess !== answer
+    ) {
+      setGameStatus('lose');
+      setGameOver(true);
+    }
+
     const result = checkGuess(guess, answer);
     console.log(result);
     setGuesses([...guesses, result]);

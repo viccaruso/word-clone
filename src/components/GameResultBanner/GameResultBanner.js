@@ -5,8 +5,11 @@ function GameResultBanner({ answer, status, numOfGuesses }) {
     status === 'win' ? (
       <div className="happy banner">
         <p>
-          <strong>Congratulations!</strong> Got it in
-          <strong>{numOfGuesses} guesses</strong>.
+          <strong>Congratulations!</strong> Got it in{' '}
+          <strong>
+            {`${numOfGuesses} ${numOfGuesses > 1 ? 'guesses' : 'guess'}`}
+          </strong>
+          .
         </p>
       </div>
     ) : (
