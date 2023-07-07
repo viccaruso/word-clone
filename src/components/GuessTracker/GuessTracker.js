@@ -6,7 +6,7 @@ function GuessTracker({ guesses }) {
   return (
     <div className="guess-results">
       {range(NUM_OF_GUESSES_ALLOWED).map((_, index) => (
-        <GuessRow key={index} word={guesses[index]} />
+        <GuessRow key={index} guessResult={guesses[index]} />
       ))}
     </div>
   );
