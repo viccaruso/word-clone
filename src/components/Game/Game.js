@@ -7,9 +7,10 @@ import GuessTracker from '../GuessTracker/GuessTracker';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import WinBanner from '../WinBanner/WinBanner';
 import LoseBanner from '../LoseBanner/LoseBanner';
+import Button from '../Button/Button';
 
 // Pick a random word on every pageload.
-const answer = sample(WORDS);
+let answer = sample(WORDS);
 
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
@@ -30,10 +31,20 @@ function Game() {
     }
   }
 
+  function handleReset() {
+    answer = sample(WORDS);
+    setGameStatus('in progress');
+    setGuesses([]);
+  }
+
   return (
     <>
+      {gameStatus !== 'in progress' && (
+        <Button clickHandler={handleReset}>Reset Game</Button>
+      )}
       <GuessTracker guesses={guesses} />
       <GuessInput handleGuess={handleGuess} gameStatus={gameStatus} />
+
       {gameStatus === 'win' && <WinBanner numOfGuesses={guesses.length} />}
       {gameStatus === 'lose' && <LoseBanner answer={answer} />}
     </>
